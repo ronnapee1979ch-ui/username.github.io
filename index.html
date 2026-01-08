@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PANEL BUY</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(135deg,#2f3cff,#7b2cff);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+/* กล่องหลัก */
+.box{
+  width:90%;
+  max-width:340px;
+  background:#0b1220;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 0 30px rgba(0,0,0,.4);
+}
+
+/* ซ่อนพาแนลก่อน */
+#panel{
+  display:none;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:15px;
+  color:#7fd6ff;
+}
+
+/* input */
+input{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  font-size:14px;
+}
+
+/* ปุ่ม */
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  font-size:15px;
+  color:white;
+  background:linear-gradient(90deg,#1ea7ff,#8b5cff);
+}
+
+/* เมนูพาแนล */
+.menu{
+  margin-top:10px;
+}
+
+.item{
+  background:#121b35;
+  padding:12px;
+  border-radius:12px;
+  margin-bottom:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* toggle */
+.switch{
+  width:42px;
+  height:22px;
+  background:#444;
+  border-radius:20px;
+  position:relative;
+  cursor:pointer;
+}
+
+.switch::after{
+  content:"";
+  width:18px;
+  height:18px;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  top:2px;
+  left:2px;
+  transition:.3s;
+}
+
+.switch.active{
+  background:#3cff9b;
+}
+
+.switch.active::after{
+  left:22px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="box" id="login">
+  <h2>PANEL BUY</h2>
+
+  <input type="text" id="user" placeholder="USERNAME">
+  <input type="password" id="key" placeholder="KEYLESS">
+
+  <button onclick="login()">เข้าสู่ระบบ</button>
+</div>
+
+<!-- PANEL -->
+<div class="box" id="panel">
+  <h2>FREE PANEL</h2>
+
+  <div class="menu">
+    <div class="item">
+      AIMBOT 80%
+      <div class="switch" onclick="toggle(this)"></div>
+    </div>
+
+    <div class="item">
+      AIMLOCK 50%
+      <div class="switch" onclick="toggle(this)"></div>
+    </div>
+
+    <div class="item">
+      INJECT DATA
+      <div class="switch" onclick="toggle(this)"></div>
+    </div>
+
+    <div class="item">
+      120 FPS
+      <div class="switch" onclick="toggle(this)"></div>
+    </div>
+
+    <div class="item">
+      ANTI BAN
+      <div class="switch" onclick="toggle(this)"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function login(){
+  const u = user.value;
+  const k = key.value;
+
+  if(u && k){
+    alert("✅ เข้าสู่ระบบสำเร็จ");
+    document.getElementById("login").style.display="none";
+    document.getElementById("panel").style.display="block";
+  }else{
+    alert("❌ กรุณากรอก USERNAME และ KEYLESS");
+  }
+}
+
+function toggle(el){
+  el.classList.toggle("active");
+}
+</script>
+
+</body>
+  </html>
